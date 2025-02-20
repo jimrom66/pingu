@@ -36,9 +36,13 @@ const entriesManager={
 }
 
 const renderManager={
-    nowDiv: document.querySelector("people-now-div"),
-    totalDiv: document.querySelector("people-sum-div"),
+    nowDiv: document.querySelector(".people-now-div"),
+    totalDiv: document.querySelector(".people-sum-div"),
 
+    update:function(){
+        this.nowDiv.textContent=`Current customers: ${entriesManager.findAllCustomerNow()}`;
+        this.totalDiv.textContent=`Total customers: ${entriesManager.findAllEntries()}`;
+    }
     
     
 }
@@ -49,20 +53,21 @@ const clickHandler={
 
     init:function(){
         this.plusButton.addEventListener("click",()=>this.plusClick());
-        this.minusButton.addEventListener("click",minusClick());
+        this.minusButton.addEventListener("click",()=>this.minusClick());
     },
 
     plusClick:function(){
         entriesManager.customerEntry();
-        console.log(entriesManager.entriesLog);
+        renderManager.update();
 
     },
 
     minusClick:function(){
         entriesManager.customerLeft();
-        console.log(entriesManager.entriesLog);
+        renderManager.update();
     }
 
 
 
 }
+clickHandler.init()
