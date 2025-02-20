@@ -40,8 +40,8 @@ const renderManager={
     totalDiv: document.querySelector(".people-sum-div"),
 
     update:function(){
-        this.nowDiv.textContent=`Current customers: ${entriesManager.findAllCustomerNow()}`;
-        this.totalDiv.textContent=`Total customers: ${entriesManager.findAllEntries()}`;
+        this.nowDiv.textContent=` ${entriesManager.findAllCustomerNow()}`;
+        this.totalDiv.textContent=` ${entriesManager.findAllEntries()}`;
     }
     
     
